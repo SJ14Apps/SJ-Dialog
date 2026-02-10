@@ -4,15 +4,15 @@ plugins {
 }
 
 group = 'com.github.slavce14'
-version = "1.7"
+version = "1.7.0.1"
 
 android {
     compileSdk 31
 
     defaultConfig {
         minSdk 23
-        versionCode 27
-        versionName "1.7"
+        versionCode 28
+        versionName "1.7.0.1"
 
         buildConfigField 'int', 'VERSION_CODE', "${versionCode}"
         buildConfigField 'String', 'VERSION_NAME', "\"${versionName}\""
