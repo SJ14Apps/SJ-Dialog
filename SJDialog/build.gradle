@@ -30,6 +30,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     namespace 'com.sjapps.library'
 }
 
@@ -42,16 +47,16 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.slavce14'
-                artifactId = 'sj-dialog'
-                version = '1.7'
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            // Creates a Maven publication called "release".
+//            release(MavenPublication) {
+//                from components.release
+//                groupId = 'com.github.slavce14'
+//                artifactId = 'sj-dialog'
+//                version = '1.7'
+//            }
+//        }
+//    }
+//}
