@@ -11,19 +11,19 @@ dialog.Builder(context)
 	})
        	.show();
 ```
-![BasicDialog example](https://raw.githubusercontent.com/SlaVcE14/SJ-Dialog/master/SJDialog/images/BasicDialog%20example%201.png)
+![BasicDialog example](https://raw.githubusercontent.com/SJ14Apps/SJ-Dialog/master/SJDialog/images/BasicDialog%20example%201.png)
 ## Builder
 Apply the default theme to a dialog
 ```java
 dialog.Builder(context)
 ```
-![BasicDialog day-night](https://raw.githubusercontent.com/SlaVcE14/SJ-Dialog/master/SJDialog/images/BasicDialog%20day-night.png)
+![BasicDialog day-night](https://raw.githubusercontent.com/SJ14Apps/SJ-Dialog/master/SJDialog/images/BasicDialog%20day-night.png)
 
 Apply the app theme to a dialog **(only works with material3 theme)**
 ```java
 dialog.Builder(context,true)
 ```
-![BasicDialog day-night theme](https://raw.githubusercontent.com/SlaVcE14/SJ-Dialog/master/SJDialog/images/BasicDialog%20day-night.gif)
+![BasicDialog day-night theme](https://raw.githubusercontent.com/SJ14Apps/SJ-Dialog/master/SJDialog/images/BasicDialog%20day-night.gif)
 
 Apply the custom theme to a dialog **(only works with material3 theme)**
 ```java
@@ -34,7 +34,7 @@ By default dialog colors will be set to material3 dynamic colors. With this meth
 ```java
 dialog.setOldTheme();
 ```
-![BasicDialog oldTheme](https://raw.githubusercontent.com/SlaVcE14/SJ-Dialog/master/SJDialog/images/BasicDialog%20oldTheme.png)
+![BasicDialog oldTheme](https://raw.githubusercontent.com/SJ14Apps/SJ-Dialog/master/SJDialog/images/BasicDialog%20oldTheme.png)
 ## DialogPreset
 With **DialogPreset**, you can create customized dialogs with consistent customizations. Simply create a DialogPreset and implement it across all dialogs that you want to have that customizations.
 ### Creating a DialogPreset
