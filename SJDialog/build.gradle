@@ -4,14 +4,15 @@ plugins {
 }
 
 group = 'com.github.slavce14'
+version = "1.7.0.1"
 
 android {
     compileSdk 31
 
     defaultConfig {
         minSdk 23
-        versionCode 27
-        versionName "1.7"
+        versionCode 28
+        versionName "1.7.0.1"
 
         buildConfigField 'int', 'VERSION_CODE', "${versionCode}"
         buildConfigField 'String', 'VERSION_NAME', "\"${versionName}\""
@@ -30,13 +31,24 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+
     namespace 'com.sjapps.library'
 }
 
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'com.google.android.material:material:1.10.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -48,9 +60,9 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.github.slavce14'
+                groupId = 'com.github.sj14apps'
                 artifactId = 'sj-dialog'
-                version = '1.7'
+                version = project.version
             }
         }
     }

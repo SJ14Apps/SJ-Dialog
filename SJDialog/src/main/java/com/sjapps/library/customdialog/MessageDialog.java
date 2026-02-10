@@ -14,11 +14,13 @@ import com.sjapps.library.R;
 /**
  * Creating a simple message dialog. Use the {@link #Builder(Context)}, {@link #Builder(Context, int)} or {@link #Builder(Context, boolean)} to build a dialog
  * <pre>
+ * {@code
  * MessageDialog messageDialog = new MessageDialog();
  * messageDialog.Builder(context)
- * 	    .setTitle("Title")
+ *      .setTitle("Title")
  *      .setMessage("Message")
  *      .show();
+ * }
  * </pre>
  * @see #setOldTheme()
  * @see #setTitle(String)

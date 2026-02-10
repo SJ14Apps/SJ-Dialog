@@ -28,6 +28,7 @@ import java.util.ArrayList;
  *  <h2>Examples</h2>
  * <h3>List of String array</h3>
  * <pre>
+ * {@code
  * String[] strings = {"item1","item2","item3"};
  *
  * ListDialog listDialog = new ListDialog();
@@ -36,10 +37,12 @@ import java.util.ArrayList;
  *        		// Do something
  *                        })
  *        	.show();
+ * }
  * </pre>
  *
  * <h3>List of Objects</h3>
  * <pre>
+ * {@code
  * class ExampleObject{
  *     	String value;
  *
@@ -47,8 +50,10 @@ import java.util.ArrayList;
  *         	this.value = value;
  *      }
  * }
+ * }
  * </pre>
  * <pre>
+ * {@code
  * ExampleObject[] objects = {new ExampleObject("object1"),new ExampleObject("object2"),new ExampleObject("object3")};
  *
  * ListDialog listDialog = new ListDialog();
@@ -60,10 +65,12 @@ import java.util.ArrayList;
  *                 	// Do something
  *              })
  *      .show();
+ * }
  * </pre>
  *
  * <h3>ArrayList of Objects with two values</h3>
  * <pre>
+ * {@code
  * class ExampleObject{
  *     	String value1;
  *     	String value2;
@@ -73,8 +80,10 @@ import java.util.ArrayList;
  *         	this.value2 = value2;
  *      }
  * }
+ * }
  * </pre>
  * <pre>
+ * {@code
  * ArrayList<ExampleObject> arrayList = new ArrayList<>();
  * arrayList.add(new ExampleObject("object1","value1"));
  * arrayList.add(new ExampleObject("object2","value2"));
@@ -85,12 +94,12 @@ import java.util.ArrayList;
  * 	    .setItems(
  *    		arrayList,
  *          new ListItemValues<ExampleObject>() {
- *              {@code @Override}
+ *              @Override
  *              public String getValue1(ExampleObject obj) {
  *                  return obj.value1;
  *              }
  *
- *              {@code @Override}
+ *              @Override
  *              public String getValue2(ExampleObject obj) {
  *                  return obj.value2;
  *              }
@@ -99,6 +108,7 @@ import java.util.ArrayList;
  *              // Do something
  *           })
  *      .show();
+ *      }
  * </pre>
  *
  *

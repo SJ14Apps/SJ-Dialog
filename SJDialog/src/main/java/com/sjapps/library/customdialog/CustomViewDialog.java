@@ -18,43 +18,49 @@ import com.sjapps.library.R;
  *  <h2>Examples</h2>
  * <h3>Add button example</h3>
  * <pre>
+ *     {@code
  * Button button1 = new Button(this);
  * button1.setText("Button");
  *
  * CustomViewDialog customViewDialog = new CustomViewDialog();
  * customViewDialog.Builder(this)
- * 	    .setTitle("Title")
+ *      .setTitle("Title")
  *      .addCustomView(button1)
  *      .show();
+ *      }
  * </pre>
  *
  * <h3>Add EditText example</h3>
  * <pre>
+ *     {@code
  * EditText editText = new EditText(this);
  * editText.setHint("add text");
  *
  * CustomViewDialog customViewDialog = new CustomViewDialog();
  * customViewDialog.Builder(this)
  *      .setTitle("Title")
- * 	    .dialogWithTwoButtons()
+ *      .dialogWithTwoButtons()
  *      .addCustomView(editText)
  *      .onButtonClick(() -> {
  *          String text = editText.getText().toString();
  *                 // Do something
  *          })
  *      .show();
+ *      }
  * </pre>
  *
  * <h3>Add custom xml layout example</h3>
  * <pre>
+ *     {@code
  * View view = LayoutInflater.from(this).inflate(R.layout.custon_layout,null);
  *
  * CustomViewDialog customViewDialog = new CustomViewDialog();
  * customViewDialog.Builder(this)
- * 	    .setTitle("Title")
- * 	    .dialogWithTwoButtons()
+ *      .setTitle("Title")
+ *      .dialogWithTwoButtons()
  *      .addCustomView(view)
  *      .show();
+ *      }
  * </pre>
  *
  * @see #dialogWithTwoButtons()

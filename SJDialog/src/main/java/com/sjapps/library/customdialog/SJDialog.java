@@ -28,6 +28,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.sjapps.library.R;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * @see BasicDialog
  * @see MessageDialog
@@ -43,15 +46,15 @@ public abstract class SJDialog {
     /** Sets text alignment to {@link View#TEXT_ALIGNMENT_VIEW_START}
      * @since 1.6
      * */
-    public static final int TEXT_ALIGNMENT_LEFT = View.TEXT_ALIGNMENT_VIEW_START;
+    public static final int TEXT_ALIGNMENT_LEFT = 0;
     /** Sets text alignment to {@link View#TEXT_ALIGNMENT_VIEW_END}
      * @since 1.6
      * */
-    public static final int TEXT_ALIGNMENT_RIGHT = View.TEXT_ALIGNMENT_VIEW_END;
+    public static final int TEXT_ALIGNMENT_RIGHT = 1;
     /** Sets text alignment to {@link View#TEXT_ALIGNMENT_CENTER}
      * @since 1.6
      * */
-    public static final int TEXT_ALIGNMENT_CENTER = View.TEXT_ALIGNMENT_CENTER;
+    public static final int TEXT_ALIGNMENT_CENTER = 2;
 
     private @LayoutRes int Btn1Resource = R.layout.button_template;
     private @LayoutRes int Btn2Resource = R.layout.button_template;
@@ -130,14 +133,16 @@ public abstract class SJDialog {
                     INSETS_NONE
             }
     )
-
+    @Retention(RetentionPolicy.SOURCE)
     public @interface DialogInsets{}
 
     @StringDef({RED_BUTTON, MATERIAL3_RED_BUTTON, OLD_BUTTON_COLOR})
+    @Retention(RetentionPolicy.SOURCE)
     public @interface ButtonColor {
     }
 
     @IntDef({TEXT_ALIGNMENT_LEFT, TEXT_ALIGNMENT_RIGHT, TEXT_ALIGNMENT_CENTER})
+    @Retention(RetentionPolicy.SOURCE)
     public @interface TextAlignment {
     }
 
@@ -237,7 +242,7 @@ public abstract class SJDialog {
     protected SJDialog setTitleAlignment(@TextAlignment int textAlignment){
         TextView title = getTitleTextView();
         title.setGravity(Gravity.RIGHT);
-        title.setTextAlignment(textAlignment);
+        title.setTextAlignment(toViewTextAlignment(textAlignment));
 
         return this;
     }
@@ -250,7 +255,7 @@ public abstract class SJDialog {
      * */
     protected SJDialog setMessageAlignment(@TextAlignment int textAlignment){
         TextView msg = getMessageTextView();
-        msg.setTextAlignment(textAlignment);
+        msg.setTextAlignment(toViewTextAlignment(textAlignment));
         return this;
     }
 
@@ -888,6 +893,18 @@ public abstract class SJDialog {
             );
 
         dialog.getWindow().getDecorView().setOnTouchListener(dialogOnTouchListener);
+    }
+
+    private static int toViewTextAlignment(int alignment) {
+        switch (alignment) {
+            case TEXT_ALIGNMENT_LEFT:
+                return View.TEXT_ALIGNMENT_VIEW_START;
+            case TEXT_ALIGNMENT_RIGHT:
+                return View.TEXT_ALIGNMENT_VIEW_END;
+            case TEXT_ALIGNMENT_CENTER:
+            default:
+                return View.TEXT_ALIGNMENT_CENTER;
+        }
     }
 
     private OneButtonException OneButtonException() {

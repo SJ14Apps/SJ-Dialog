@@ -14,15 +14,17 @@ import com.sjapps.library.R;
 /**
  * Creating a simple dialog. Use the {@link #Builder(Context)}, {@link #Builder(Context, int)} or {@link #Builder(Context, boolean)} to build a dialog
  * <pre>
+ * {@code
  * BasicDialog dialog = new BasicDialog();
  * dialog.Builder(context)
- * 	.setTitle("Title")
+ *       .setTitle("Title")
  *   	.setLeftButtonText("button1")
  *   	.setRightButtonText("button2")
  *   	.onButtonClick(() -> {
  * 		    // Do something
  *      })
  *      .show();
+ * }
  * </pre>
  * @see #setOldTheme()
  * @see #setTitle(String)
