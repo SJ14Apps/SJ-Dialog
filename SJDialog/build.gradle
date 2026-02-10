@@ -4,6 +4,7 @@ plugins {
 }
 
 group = 'com.github.slavce14'
+version = "1.7"
 
 android {
     compileSdk 31
@@ -35,6 +36,12 @@ android {
         buildConfig = true
     }
 
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+
     namespace 'com.sjapps.library'
 }
 
@@ -47,16 +54,16 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
 
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            // Creates a Maven publication called "release".
-//            release(MavenPublication) {
-//                from components.release
-//                groupId = 'com.github.slavce14'
-//                artifactId = 'sj-dialog'
-//                version = '1.7'
-//            }
-//        }
-//    }
-//}
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.sj14apps'
+                artifactId = 'sj-dialog'
+                version = project.version
+            }
+        }
+    }
+}
