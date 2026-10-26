@@ -1,32 +1,35 @@
 plugins {
     id 'com.android.library'
-    id 'maven-publish'
+    id 'com.vanniktech.maven.publish' version '0.37.0'
 }
 
-group = 'com.github.slavce14'
-version = "1.7.0.1"
+group = 'com.sj14apps'
+version = '1.7.0.1'
 
 android {
-    compileSdk 31
+    namespace 'com.sj14apps.library'
+    compileSdk 36
 
     defaultConfig {
         minSdk 23
         versionCode 28
-        versionName "1.7.0.1"
 
         buildConfigField 'int', 'VERSION_CODE', "${versionCode}"
-        buildConfigField 'String', 'VERSION_NAME', "\"${versionName}\""
+        buildConfigField 'String', 'VERSION_NAME', "\"${version}\""
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile(
+                'proguard-android-optimize.txt'
+            ), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
@@ -35,35 +38,48 @@ android {
     buildFeatures {
         buildConfig = true
     }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
-    }
-
-    namespace 'com.sjapps.library'
 }
 
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.10.0'
-    testImplementation 'junit:junit:4.+'
+
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.sj14apps'
-                artifactId = 'sj-dialog'
-                version = project.version
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
+
+    coordinates('com.sj14apps', 'sj-dialog', project.version.toString())
+
+    pom {
+        name = 'SJ Dialog'
+        description = 'Android Library for creating custom dialogs'
+        url = 'https://github.com/SJ14Apps/SJ-Dialog'
+
+        licenses {
+            license {
+                name = 'MIT License'
+                url = 'https://opensource.org/license/mit/'
+                distribution = 'https://opensource.org/license/mit/'
             }
+        }
+
+        developers {
+            developer {
+                id = 'sj14apps'
+                name = 'SJ14Apps'
+                email = 'info@sj14apps.com'
+            }
+        }
+
+        scm {
+            url = 'https://github.com/SJ14Apps/SJ-Dialog'
+            connection = 'scm:git:https://github.com/SJ14Apps/SJ-Dialog.git'
+            developerConnection = 'scm:git:ssh://git@github.com/SJ14Apps/SJ-Dialog.git'
         }
     }
 }
