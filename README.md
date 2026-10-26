@@ -8,8 +8,18 @@ Android library for creating custom dialogs. You can change color and background
 
 ## Download
 > [!NOTE]
-> this library was moved to `com.github.sj14apps`!
-### Step 1. Add the JitPack repository 
+> this library was moved to `com.sj14apps.sj-dialog`!
+> 
+> also is migrated form `com.sjapps.library` to `com.sj14apps.library` package 
+
+### Maven Central
+```gradle
+dependencies {
+	implementation 'com.sj14apps:sj-dialog:1.7.0.1'
+}
+```
+### JitPack (This method is deprecated and it will not work in the future versions)
+#### Step 1. Add the JitPack repository 
 Add it in your root build.gradle at the end of repositories:
 ```gradle
 allprojects {
@@ -28,12 +38,13 @@ dependencyResolutionManagement {
 }
 ```
 
-### Step 2. Add the dependency
+#### Step 2. Add the dependency
 ```gradle
 dependencies {
 	implementation 'com.github.sj14apps:SJ-Dialog:1.7.0.1'
 }
 ```
+![Maven Central Version](https://img.shields.io/maven-central/v/com.sj14apps/sj-dialog)
 [![](https://jitpack.io/v/sj14apps/SJ-Dialog.svg)](https://jitpack.io/#sj14apps/SJ-Dialog)
 ![GitHub repo size](https://img.shields.io/github/repo-size/slavce14/sj-dialog?color=0064ff)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/slavce14/sj-dialog?color=0064ff)](../../releases/latest)
